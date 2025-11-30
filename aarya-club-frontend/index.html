@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarya Club - CSE Cultural Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .club-logo {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.8;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff6b35;
+        }
+        
+        .feature-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #e55100;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .status-card h3 {
+            color: #4caf50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .status-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .test-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .test-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .club-logo {
+                font-size: 4rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="club-logo">🎓</div>
+            <h1>Aarya Club</h1>
+            <h2>CSE Department Cultural Club</h2>
+            <p class="subtitle">Welcome to the Aarya Club Management System!</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎉</div>
+                <h3>Events Management</h3>
+                <p>Create, organize, and manage cultural events for the CSE department. Track upcoming events and maintain a history of past activities.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Members Management</h3>
+                <p>Add and organize club members with their roles and responsibilities. Manage member profiles and track participation.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Dashboard Overview</h3>
+                <p>Get a comprehensive view of all club activities, statistics, and recent updates in one centralized location.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="http://localhost:3000" class="btn btn-primary">Access Admin Panel</a>
+            <a href="http://localhost:8080/api/events" class="btn btn-secondary">Test Backend API</a>
+        </div>
+
+        <div class="status-card">
+            <h3>✅ System Status</h3>
+            <p>Frontend is working perfectly! This is a simplified version to test connectivity.</p>
+            <p><strong>Backend URL:</strong> http://localhost:8080</p>
+            <p><strong>Frontend URL:</strong> http://localhost:3000</p>
+            <button class="test-btn" onclick="testBackend()">Test Backend Connection</button>
+        </div>
+    </div>
+
+    <script>
+        function testBackend() {
+            fetch('http://localhost:8080/api/events')
+                .then(response => {
+                    if (response.ok) {
+                        alert('✅ Backend is running! API connection successful.');
+                    } else {
+                        alert('⚠️ Backend responded but with an error. Check if your Spring Boot app is running.');
+                    }
+                })
+                .catch(error => {
+                    alert('❌ Cannot connect to backend. Make sure your Spring Boot app is running on port 8080.');
+                });
+        }
+
+        // Auto-test backend on page load
+        window.addEventListener('load', function() {
+            setTimeout(testBackend, 2000);
+        });
+    </script>
+</body>
+
+</html>
