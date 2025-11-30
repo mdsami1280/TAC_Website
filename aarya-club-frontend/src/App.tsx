@@ -29,9 +29,9 @@ function App() {
         </Route>
 
         {/* Hidden Admin Routes - Only accessible via secret URL */}
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="login" element={<AdminLogin />} />
           <Route path="dashboard" element={
             <ProtectedRoute>
               <AdminDashboard />

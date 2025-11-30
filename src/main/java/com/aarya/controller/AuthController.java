@@ -67,12 +67,20 @@ public class AuthController {
                 )
             );
 
+            Admin admin = adminRepository.findByUsername(credentials.get("username"))
+                    .orElseThrow(() -> new RuntimeException("Admin not found"));
+            
             UserDetails userDetails = userDetailsService.loadUserByUsername(credentials.get("username"));
             String token = jwtService.generateToken(userDetails);
             
-            Map<String, String> response = new HashMap<>();
+            Map<String, Object> response = new HashMap<>();
             response.put("token", token);
             response.put("message", "Login successful");
+            response.put("user", Map.of(
+                "username", admin.getUsername(),
+                "email", admin.getEmail() != null ? admin.getEmail() : "",
+                "fullName", admin.getFullName() != null ? admin.getFullName() : ""
+            ));
 
             return ResponseEntity.ok(response);
         } catch (Exception e) {

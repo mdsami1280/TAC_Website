@@ -59,13 +59,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (username: string, password: string) => {
     try {
       const response = await authService.login(username, password);
-      const { token: authToken } = response.data;
+      const { token: authToken, user: userFromResponse } = response.data;
       
-      // Create user data from login response
-      const userData: User = {
+      // Use user data from response if available, otherwise use username
+      const userData: User = userFromResponse || {
         username,
-        email: '', // Will be updated if available
-        fullName: '', // Will be updated if available
+        email: '',
+        fullName: '',
       };
       
       setToken(authToken);
