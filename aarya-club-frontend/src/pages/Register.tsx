@@ -63,9 +63,11 @@ const Register: React.FC = () => {
         fullName: formData.fullName,
         password: formData.password,
       });
-      navigate('/dashboard');
+      navigate('/admin/dashboard');
     } catch (err: any) {
-      setError(err.response?.data || 'Registration failed. Please try again.');
+      console.error('Registration error:', err);
+      const errorMessage = err.response?.data || err.message || 'Registration failed. Please try again.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -232,7 +234,7 @@ const Register: React.FC = () => {
                     Already have an account?{' '}
                     <Button
                       component={RouterLink}
-                      to="/login"
+                      to="/admin/login"
                       variant="text"
                       color="primary"
                     >

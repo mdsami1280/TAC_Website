@@ -13,6 +13,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminEvents from './pages/AdminEvents';
 import AdminMembers from './pages/AdminMembers';
+import Register from './pages/Register';
 import TestAuth from './pages/TestAuth';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
         {/* Hidden Admin Routes - Only accessible via secret URL */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="dashboard" element={

@@ -84,9 +84,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (userData: RegisterData) => {
     try {
       const response = await authService.register(userData);
-      const { token: authToken } = response.data;
+      const { token: authToken, user: userFromResponse } = response.data;
       
-      const newUser: User = {
+      // Use user data from response if available, otherwise use form data
+      const newUser: User = userFromResponse || {
         username: userData.username,
         email: userData.email,
         fullName: userData.fullName,

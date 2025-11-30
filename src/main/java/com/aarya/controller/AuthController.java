@@ -50,9 +50,14 @@ public class AuthController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(admin.getUsername());
         String token = jwtService.generateToken(userDetails);
         
-        Map<String, String> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         response.put("token", token);
         response.put("message", "Admin registered successfully");
+        response.put("user", Map.of(
+            "username", admin.getUsername(),
+            "email", admin.getEmail() != null ? admin.getEmail() : "",
+            "fullName", admin.getFullName() != null ? admin.getFullName() : ""
+        ));
 
         return ResponseEntity.ok(response);
     }
