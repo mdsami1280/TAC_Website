@@ -1,6 +1,16 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
+// Ensure API base URL always ends with /api
+const getApiBaseUrl = () => {
+  const envUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
+  // If URL doesn't end with /api, add it
+  if (!envUrl.endsWith('/api')) {
+    return envUrl.endsWith('/') ? `${envUrl}api` : `${envUrl}/api`;
+  }
+  return envUrl;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
