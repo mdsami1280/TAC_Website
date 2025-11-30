@@ -93,7 +93,8 @@ public class SecurityConfig {
         // Parse allowed origins from environment variable or use wildcard
         if (allowedOrigins != null && !allowedOrigins.equals("*")) {
             List<String> origins = Arrays.asList(allowedOrigins.split(","));
-            configuration.setAllowedOrigins(origins);
+            // Use setAllowedOriginPatterns to support Vercel preview URLs and wildcards
+            configuration.setAllowedOriginPatterns(origins);
         } else {
             configuration.setAllowedOriginPatterns(Arrays.asList("*"));
         }
